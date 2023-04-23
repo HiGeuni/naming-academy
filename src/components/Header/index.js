@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Title, UserLogin } from "./style";
+import { Container, Title, UserLogin, FlexFixedDiv } from "./style";
 
 const Header = () => {
   const [loginState, setLoginState] = useState(false);
@@ -10,10 +10,12 @@ const Header = () => {
 
   return (
     <Container>
-      <Title>제목 학원</Title>
-      <UserLogin onClick={onClickLogin}>
-        {loginState ? "Log out" : "Log in"}
-      </UserLogin>
+      <FlexFixedDiv>
+        <Title to="/">제목 학원</Title>
+        <UserLogin onClick={onClickLogin}>
+          {loginState ? "Log out" : "Log in"}
+        </UserLogin>
+      </FlexFixedDiv>
     </Container>
   );
 };
