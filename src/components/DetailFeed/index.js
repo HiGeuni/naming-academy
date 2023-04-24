@@ -1,13 +1,26 @@
 import React from "react";
-import { DetailContainer, ShadowWrapper, StyledImg } from "./style";
+import {
+  CommentsContainer,
+  DetailContainer,
+  ShadowWrapper,
+  StyledImg,
+  UserInfo,
+} from "./style";
 import Comments from "components/Comments";
+import { HiUserCircle } from "react-icons/hi";
 
-const DetailFeed = ({ id }) => {
+const DetailFeed = ({ id, data }) => {
   return (
     <DetailContainer>
       <ShadowWrapper>
-        <StyledImg src="https://media.discordapp.net/attachments/909308714161410071/1088789299673186334/NoPoverty.png?width=1306&height=1306" />
-        <Comments />
+        <StyledImg src={data.imgUrl} />
+        <CommentsContainer>
+          <UserInfo>
+            <HiUserCircle /> {data.username}
+          </UserInfo>
+          <hr />
+          <Comments />
+        </CommentsContainer>
       </ShadowWrapper>
     </DetailContainer>
   );

@@ -9,14 +9,6 @@ export const CommentsContainer = styled.div`
   padding: 20px;
 `;
 
-export const UserInfo = styled.div`
-  display: flex;
-  align-items: start;
-  font-size: 30px;
-  font-weight: 700;
-  color: #3a2d27;
-`;
-
 export const CommentsWrapper = styled.div`
   height: 520px;
   overflow-y: scroll;

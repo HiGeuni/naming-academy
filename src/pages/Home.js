@@ -3,17 +3,26 @@ import Layout from "components/Layout";
 import Menu from "components/Menu";
 import { useEffect, useState } from "react";
 import "styles/global.css";
+import { fetchFeeds } from "hooks/Feed";
 
 function Home() {
   const [isBest, setIsBest] = useState(true);
+  const [feedData, setFeedData] = useState(null);
 
   useEffect(() => {
-    // isBest가 변화할 때마다 보여지는 리스트 수정
-  }, [isBest]);
+    fetchFeeds()
+      .then((d) => setFeedData(d.data))
+      .catch((e) => console.error(e));
+  }, []);
+
+  if (feedData === null) {
+    return <>is Loading...</>;
+  }
+
   return (
     <Layout>
       <Menu isBest={isBest} setIsBest={setIsBest} />
-      <Feeds />
+      <Feeds data={feedData} />
     </Layout>
   );
 }
