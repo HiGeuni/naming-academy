@@ -3,6 +3,7 @@ import Home from "pages/Home";
 import "styles/global.css";
 import Detail from "pages/Detail";
 import Upload from "pages/Upload";
+import LogIn from "pages/Login"
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/detail" element={<Detail />} />
         <Route path="/upload" element={<Upload />} />
+        <Route path="/login" element={<LogIn />} />
       </Routes>
     </BrowserRouter>
   );
