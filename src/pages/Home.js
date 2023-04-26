@@ -4,7 +4,6 @@ import Menu from "components/Menu";
 import { useEffect, useState } from "react";
 import "styles/global.css";
 import { fetchFeeds } from "hooks/Feed";
-
 function Home() {
   const [isBest, setIsBest] = useState(true);
   const [feedData, setFeedData] = useState(null);
@@ -14,10 +13,6 @@ function Home() {
       .then((d) => setFeedData(d.data))
       .catch((e) => console.error(e));
   }, []);
-
-  if (feedData === null) {
-    return <>is Loading...</>;
-  }
 
   return (
     <Layout>
