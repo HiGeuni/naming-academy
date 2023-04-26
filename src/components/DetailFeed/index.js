@@ -7,19 +7,27 @@ import {
   UserInfo,
 } from "./style";
 import Comments from "components/Comments";
+import Skeleton from "react-loading-skeleton"; // import Skeleton
+
 import { HiUserCircle } from "react-icons/hi";
 
-const DetailFeed = ({ id, data }) => {
+const DetailFeed = ({ data, comments }) => {
+  const isLoading = !data;
   return (
     <DetailContainer>
       <ShadowWrapper>
-        <StyledImg src={data.imgUrl} />
+        {isLoading ? (
+          <Skeleton width={700} height={700} />
+        ) : (
+          <StyledImg src={data.imageUrl} />
+        )}
         <CommentsContainer>
           <UserInfo>
-            <HiUserCircle /> {data.username}
+            <HiUserCircle />
+            {isLoading ? <Skeleton width={200} /> : data.uploader}
           </UserInfo>
           <hr />
-          <Comments />
+          {comments && <Comments comments={comments} />}
         </CommentsContainer>
       </ShadowWrapper>
     </DetailContainer>

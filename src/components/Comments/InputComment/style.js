@@ -29,7 +29,7 @@ export const CustomChkBox = styled.input`
   }
 `;
 
-export const InputArea = styled.div`
+export const InputArea = styled.form`
   display: flex;
   justify-content: space-between;
   & > textarea,

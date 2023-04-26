@@ -3,23 +3,13 @@ import { CommentsWrapper } from "./style";
 import Comment from "components/Comments/Comment";
 import InputComment from "./InputComment";
 
-const Comments = () => {
+const Comments = ({ comments }) => {
   return (
     <>
       <CommentsWrapper>
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments?.map((comment) => (
+          <Comment data={comment} />
+        ))}
       </CommentsWrapper>
       <InputComment />
     </>

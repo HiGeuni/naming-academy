@@ -1,4 +1,32 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
+
+const shimmer = keyframes`
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+`;
+
+export const SkeletonImage = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  background-image: linear-gradient(90deg, #ddd 0px, #fff 50px, #ddd 100%);
+  background-size: 1000px 100%;
+  animation: ${shimmer} 1s linear infinite;
+`;
+
+export const SkeletonText = styled.div`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  background-color: #ddd;
+  background-image: linear-gradient(90deg, #ddd 0px, #fff 50px, #ddd 100%);
+  background-size: 1000px 100%;
+  animation: ${shimmer} 1s linear infinite;
+`;
 
 export const FeedContainer = styled.div`
   position: relative;

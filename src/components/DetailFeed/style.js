@@ -4,9 +4,9 @@ export const DetailContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 200px;
   width: 100%;
   height: 100%;
+  padding-top: 10%;
 `;
 
 export const ShadowWrapper = styled.div`

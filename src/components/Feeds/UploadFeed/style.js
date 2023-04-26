@@ -18,9 +18,14 @@ export const FileUpload = styled.div`
   height: 640px;
   font-size: 40px;
   font-weight: 700;
-  background-color: #d1c7bd;
+  background-color: ${({ isDragOver }) =>
+    isDragOver ? "#3a2d2799" : "#d1c7bd"};
   border-radius: 20px;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Input = styled.input`
@@ -55,4 +60,5 @@ export const SubmitBtn = styled.button`
   margin-top: 60px;
   font-size: 30px;
   font-weight: 700;
+  cursor: pointer;
 `;

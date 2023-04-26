@@ -9,8 +9,8 @@ import {
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { HiUserCircle } from "react-icons/hi";
 
-const Comment = () => {
-  const [numLike, setNumLike] = useState(0);
+const Comment = ({ data }) => {
+  const [numLike, setNumLike] = useState(data.numLike);
   const [isChkHeart, setIsChkHeart] = useState(false);
 
   const onClickHeart = (flag) => {
@@ -23,23 +23,20 @@ const Comment = () => {
       <div>
         <UserContainer>
           <HiUserCircle style={{ width: "20px", height: "20px" }} />
-          <UserName>익명 1</UserName>
+          <UserName>{data.commenter}</UserName>
         </UserContainer>
-        <Content>
-          산타가 굴뚝 안의 트랩에 걸렸다.산타가 굴뚝 안의 트랩에 걸렸다.산타가
-          굴뚝 안의 트랩에 걸렸다.산타가 굴뚝 안의 트랩에 걸렸다.
-        </Content>
+        <Content>{data.comment}</Content>
         {numLike !== 0 && <Like>좋아요 : {numLike}개 </Like>}
       </div>
       {isChkHeart ? (
         <AiFillHeart
           onClick={() => onClickHeart(false)}
-          style={{ width: "40px", height: "40px" }}
+          style={{ maxWidth: "50px", maxHeight: "50px" }}
         />
       ) : (
         <AiOutlineHeart
           onClick={() => onClickHeart(true)}
-          style={{ width: "40px", height: "40px" }}
+          style={{ maxWidth: "50px", maxHeight: "50px" }}
         />
       )}
     </CommentContainer>
