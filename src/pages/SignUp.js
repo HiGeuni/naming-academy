@@ -1,5 +1,5 @@
 import Layout from "components/Layout";
-import SignUpForm from "components/SignInForm";
+import SignUpForm from "components/User/SignInForm";
 import React from "react";
 
 const SignUp = () => {

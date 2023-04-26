@@ -1,5 +1,5 @@
 import Layout from "components/Layout";
-import LogInForm from "components/LogInForm";
+import LogInForm from "components/User/LogInForm";
 import React from "react";
 
 const LogIn = () => {
