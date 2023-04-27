@@ -5,6 +5,7 @@ import {
   Content,
   Like,
   UserContainer,
+  WidthSizedDiv,
 } from "./style";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { HiUserCircle } from "react-icons/hi";
@@ -20,25 +21,27 @@ const Comment = ({ data }) => {
 
   return (
     <CommentContainer>
-      <div>
+      <WidthSizedDiv>
         <UserContainer>
-          <HiUserCircle style={{ width: "20px", height: "20px" }} />
-          <UserName>{data.commenter}</UserName>
+          <div style={{ display: "flex" }}>
+            <HiUserCircle style={{ width: "20px", height: "20px" }} />
+            <UserName>{data.commenter}</UserName>
+          </div>
+          {isChkHeart ? (
+            <AiFillHeart
+              onClick={() => onClickHeart(false)}
+              style={{ width: "25px", height: "25px" }}
+            />
+          ) : (
+            <AiOutlineHeart
+              onClick={() => onClickHeart(true)}
+              style={{ width: "25px", height: "25px" }}
+            />
+          )}
         </UserContainer>
         <Content>{data.comment}</Content>
         {numLike !== 0 && <Like>좋아요 : {numLike}개 </Like>}
-      </div>
-      {isChkHeart ? (
-        <AiFillHeart
-          onClick={() => onClickHeart(false)}
-          style={{ maxWidth: "50px", maxHeight: "50px" }}
-        />
-      ) : (
-        <AiOutlineHeart
-          onClick={() => onClickHeart(true)}
-          style={{ maxWidth: "50px", maxHeight: "50px" }}
-        />
-      )}
+      </WidthSizedDiv>
     </CommentContainer>
   );
 };
