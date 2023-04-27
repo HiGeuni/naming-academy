@@ -2,12 +2,12 @@ import { axiosInstance } from "api";
 import axios from "axios";
 
 export const Signup = async ({ body }) => {
-  const { data } = await axios.post("/users/signup", body);
-  // const { data } = await axiosInstance.request({
-  //   method: "POST",
-  //   body: body,
-  //   url: "/users/signup",
-  // });
+  // const { data } = await axios.post("/users/signup", body);
+  const { data } = await axiosInstance.request({
+    method: "POST",
+    body: body,
+    url: "/users/signup",
+  });
   return data;
 };
 
