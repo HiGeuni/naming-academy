@@ -15,7 +15,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 50px;
+  row-gap: 30px;
   width: 800px;
   height: 600px;
   background-color: #f1ece6;
@@ -38,8 +38,9 @@ export const StyledBtn = styled.label`
   background-color: #a48374;
   border-radius: 50px;
   color: #f1ece6;
+  margin-bottom: -10px;
   width: 400px;
-  height: 80px;
+  height: 70px;
   font-size: 30px;
   font-weight: 700;
   cursor: pointer;
