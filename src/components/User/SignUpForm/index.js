@@ -8,15 +8,28 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useInput } from "hooks/useInput";
 import axios from "axios";
+import { useState } from "react";
+import { Error } from "./style";
+
 const SignUpForm = () => {
   const navigate = useNavigate();
   const id = useInput("");
   const nickname = useInput("");
   const password1 = useInput("");
   const password2 = useInput("");
+  const [isError, setIsError] = useState(false);
 
   const onClickBtn = () => {
     navigate("/login");
+  };
+
+  const onChangePassword = (e) => {
+    password2.onChangeValue(e);
+    if (password1.value !== e.target.value) {
+      setIsError(true);
+    } else {
+      setIsError(false);
+    }
   };
 
   const onSubmit = async (e) => {
@@ -57,6 +70,7 @@ const SignUpForm = () => {
           onChange={nickname.onChangeValue}
           placeholder="Nickname"
         />
+        {isError && <Error>Password is Not Matched.</Error>}
         <input
           type="password"
           name="password1"
@@ -68,7 +82,7 @@ const SignUpForm = () => {
           type="password"
           name="password2"
           value={password2.value}
-          onChange={password2.onChangeValue}
+          onChange={onChangePassword}
           placeholder="Password"
         />
         <SubmitBtn type="submit">Join</SubmitBtn>

@@ -78,3 +78,9 @@ export const LogInBtn = styled.button`
   font-size: 25px;
   font-weight: 700;
 `;
+
+export const Error = styled.div`
+  margin-top: 16px;
+  font-size: 16px;
+  color: red;
+`;

@@ -24,18 +24,19 @@ const LogInForm = () => {
 
   const onHandleSubmit = async (e) => {
     e.preventDefault();
-    const postData = {
-      loginId: id.value,
-      password: password.value,
-    };
-    const formData = new FormData();
-    formData.append("loginId", id.value);
-    formData.append("password", password.value);
+    setIsError(!isError);
+    // const postData = {
+    //   loginId: id.value,
+    //   password: password.value,
+    // };
+    // const formData = new FormData();
+    // formData.append("loginId", id.value);
+    // formData.append("password", password.value);
 
-    axios
-      .post("/users/login", postData)
-      .then((res) => console.log(res))
-      .catch((e) => console.error(e));
+    // axios
+    //   .post("/users/login", postData)
+    //   .then((res) => console.log(res))
+    //   .catch((e) => console.error(e));
   };
 
   return (
