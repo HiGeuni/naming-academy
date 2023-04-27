@@ -41,11 +41,14 @@ export const Label = styled.label`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 350px;
+  width: 400px;
   height: 70px;
-  border: 1px solid #3a2d27;
-  border-radius: 20px;
+  border-radius: 50px;
   margin-top: 40px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #f1ece6;
+  background-color: #a48374;
   cursor: pointer;
 `;
 
@@ -53,11 +56,11 @@ export const SubmitBtn = styled.button`
   background: none;
   width: 400px;
   height: 70px;
-  background-color: #a48374;
+  background-color: #3a2d27;
   color: #f1ece6;
   border: none;
   border-radius: 50px;
-  margin-top: 60px;
+  margin-top: 40px;
   font-size: 30px;
   font-weight: 700;
   cursor: pointer;

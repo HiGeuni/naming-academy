@@ -71,7 +71,7 @@ const UploadFeed = () => {
           <img
             alt="selectedImage"
             src={selectedImageURL}
-            style={{ width: "80%", height: "80%" }}
+            style={{ width: "100%", height: "100%", objectFit: "contain" }}
           />
         ) : (
           <>
@@ -79,18 +79,15 @@ const UploadFeed = () => {
             <div> Drag and Drop Image </div>
           </>
         )}
-
-        <div>
-          <Input
-            type="file"
-            id="file-input"
-            onChange={(e) => {
-              handleImageUpload(e);
-            }}
-          />
-          <Label htmlFor="file-input">Choose File</Label>
-        </div>
       </FileUpload>
+      <Input
+        type="file"
+        id="file-input"
+        onChange={(e) => {
+          handleImageUpload(e);
+        }}
+      />
+      <Label htmlFor="file-input">Choose File</Label>
       <SubmitBtn onClick={(e) => handleSubmit(e)}>upload</SubmitBtn>
     </UploadContainer>
   );

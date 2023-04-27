@@ -4,12 +4,15 @@ import {
   Container,
   WelcomeContainer,
   LogInBtn,
+  FlexDiv,
+  Label,
 } from "./style";
 import { useNavigate } from "react-router-dom";
 import { useInput } from "hooks/useInput";
 import axios from "axios";
 import { useState } from "react";
 import { Error } from "./style";
+import { Signup } from "api/auth";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -39,13 +42,8 @@ const SignUpForm = () => {
       nickName: nickname.value,
       password: password1.value,
     };
-    axios
-      .post("/users/signup", postData)
-      .then((res) => {
-        console.log(res);
-        navigate("/login");
-      })
-      .catch((e) => console.error(e));
+    const { data } = Signup({ body: postData });
+    console.log(data);
   };
   return (
     <Container>
@@ -56,35 +54,48 @@ const SignUpForm = () => {
       </WelcomeContainer>
       <SignUpContainer onSubmit={onSubmit}>
         <div> Sign Up </div>
-        <input
-          type="text"
-          name="id"
-          value={id.value}
-          onChange={id.onChangeValue}
-          placeholder="Id"
-        />
-        <input
-          type="text"
-          name="nickname"
-          value={nickname.value}
-          onChange={nickname.onChangeValue}
-          placeholder="Nickname"
-        />
-        {isError && <Error>Password is Not Matched.</Error>}
-        <input
-          type="password"
-          name="password1"
-          value={password1.value}
-          onChange={password1.onChangeValue}
-          placeholder="password"
-        />
-        <input
-          type="password"
-          name="password2"
-          value={password2.value}
-          onChange={onChangePassword}
-          placeholder="Password"
-        />
+        <FlexDiv>
+          <Label>ID</Label>
+          <input
+            type="text"
+            name="id"
+            value={id.value}
+            onChange={id.onChangeValue}
+            placeholder="Id"
+          />
+        </FlexDiv>
+        <FlexDiv>
+          <Label>Nickname</Label>
+          <input
+            type="text"
+            name="nickname"
+            value={nickname.value}
+            onChange={nickname.onChangeValue}
+            placeholder="Nickname"
+          />
+        </FlexDiv>
+        <FlexDiv>
+          <Label>Password</Label>
+          <input
+            type="password"
+            name="password1"
+            value={password1.value}
+            onChange={password1.onChangeValue}
+            placeholder="password"
+          />
+        </FlexDiv>
+        <FlexDiv>
+          <Label>
+            Repeat Password {isError && <Error>Password is Not Matched.</Error>}
+          </Label>
+          <input
+            type="password"
+            name="password2"
+            value={password2.value}
+            onChange={onChangePassword}
+            placeholder="Password"
+          />
+        </FlexDiv>
         <SubmitBtn type="submit">Join</SubmitBtn>
       </SignUpContainer>
     </Container>

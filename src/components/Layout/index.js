@@ -1,9 +1,9 @@
 import Header from "../Header";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, user }) => {
   return (
     <>
-      <Header />
+      <Header user={user} />
       {children}
     </>
   );

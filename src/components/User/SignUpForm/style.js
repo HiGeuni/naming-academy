@@ -19,7 +19,7 @@ export const SignUpContainer = styled.form`
   background-color: #ebe2db;
   border-radius: 0px 20px 20px 0px;
 
-  & > input {
+  & > div > input {
     width: 370px;
     height: 20px;
     color: #3a2d27;
@@ -33,7 +33,7 @@ export const SignUpContainer = styled.form`
     background-color: #f1ece6;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   }
-  & > input:focus {
+  & > div > input:focus {
     outline: none;
   }
 `;
@@ -80,7 +80,23 @@ export const LogInBtn = styled.button`
 `;
 
 export const Error = styled.div`
-  margin-top: 16px;
+  /* margin-top: 16px; */
   font-size: 16px;
   color: red;
+`;
+
+export const Label = styled.label`
+  display: flex;
+  column-gap: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: -25px;
+  margin-left: 10px;
+  z-index: 10;
+`;
+
+export const FlexDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 `;

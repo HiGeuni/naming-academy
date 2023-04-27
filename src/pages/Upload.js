@@ -1,6 +1,6 @@
 import UploadFeed from "components/Feeds/UploadFeed";
 import Layout from "components/Layout";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Upload = () => {
   return (
@@ -9,4 +9,5 @@ const Upload = () => {
     </Layout>
   );
 };
+
 export default Upload;

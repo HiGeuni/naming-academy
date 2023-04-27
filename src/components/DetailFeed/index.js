@@ -11,7 +11,7 @@ import Skeleton from "react-loading-skeleton"; // import Skeleton
 
 import { HiUserCircle } from "react-icons/hi";
 
-const DetailFeed = ({ data, comments }) => {
+const DetailFeed = ({ data, comments, user, isLoggedIn }) => {
   const isLoading = !data;
   return (
     <DetailContainer>

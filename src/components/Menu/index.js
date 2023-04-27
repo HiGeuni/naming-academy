@@ -1,12 +1,21 @@
 import React from "react";
 import { Container, MenuItem, FlexDiv, NewFeedBtn } from "./style";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "hooks/useAuth";
 
 const Menu = ({ isBest, setIsBest }) => {
+  const { user, isLoggedIn } = useAuth();
   const navigate = useNavigate();
+
   const onClickBtn = () => {
-    navigate("/upload");
+    if (isLoggedIn) {
+      navigate("/upload");
+    } else {
+      alert("Please Login!");
+      navigate("/login");
+    }
   };
+
   return (
     <Container>
       <FlexDiv>

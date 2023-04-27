@@ -8,7 +8,7 @@ export const CommentContainer = styled.div`
 `;
 
 export const WidthSizedDiv = styled.div`
-  min-width: "100%";
+  min-width: 100%;
 `;
 
 export const UserContainer = styled.div`

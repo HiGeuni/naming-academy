@@ -2,6 +2,7 @@
   "name": "naming-academy",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://15.164.61.218:8080",
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@emotion/react": "^11.10.6",

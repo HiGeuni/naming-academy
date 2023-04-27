@@ -60,7 +60,9 @@ const ProfileChangeModal = ({ isShow, setIsShow }) => {
           Choose File
         </StyledBtn>
         {/*  */}
-        <StyledBtn type="submit">Submit</StyledBtn>
+        <StyledBtn style={{ backgroundColor: "#3A2D27" }} type="submit">
+          Submit
+        </StyledBtn>
       </Container>
     </ModalContainer>
   );

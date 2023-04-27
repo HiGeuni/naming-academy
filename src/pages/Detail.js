@@ -9,6 +9,7 @@ const Detail = () => {
   const [fdata, setFdata] = useState("");
   const [comments, setComments] = useState("");
   const location = useLocation();
+
   const queryParams = new URLSearchParams(location.search);
   const id = queryParams.get("id");
 
@@ -18,7 +19,6 @@ const Detail = () => {
     });
     axios.get(`/comments/getComments/${id}`).then((e) => {
       setComments(e.data);
-      console.log(e.data);
     });
   }, []);
 

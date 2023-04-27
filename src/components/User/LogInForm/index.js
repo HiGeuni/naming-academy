@@ -6,6 +6,8 @@ import {
   WelcomeContainer,
   SignUpBtn,
   Error,
+  Label,
+  FlexDiv,
 } from "./style";
 import { useNavigate } from "react-router-dom";
 import { useInput } from "hooks/useInput";
@@ -46,20 +48,26 @@ const LogInForm = () => {
         <div style={{ width: "66%", marginTop: "24px" }}>
           {isError && <Error>Invalid Id or Password</Error>}
         </div>
-        <input
-          type="text"
-          name="id"
-          placeholder="ID"
-          value={id.value}
-          onChange={(e) => id.onChangeValue(e)}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password.value}
-          onChange={(e) => password.onChangeValue(e)}
-        />
+        <FlexDiv>
+          <Label>ID</Label>
+          <input
+            type="text"
+            name="id"
+            placeholder="ID"
+            value={id.value}
+            onChange={(e) => id.onChangeValue(e)}
+          />
+        </FlexDiv>
+        <FlexDiv>
+          <Label>Password</Label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password.value}
+            onChange={(e) => password.onChangeValue(e)}
+          />
+        </FlexDiv>
         <SubmitBtn type="submit">LogIn!</SubmitBtn>
       </LogInContainer>
       <WelcomeContainer>

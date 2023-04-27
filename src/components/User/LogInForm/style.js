@@ -24,7 +24,7 @@ export const LogInContainer = styled.form`
   background-color: #ebe2db;
   border-radius: 20px 0px 0px 20px;
 
-  & > input {
+  & > div > input {
     width: 370px;
     height: 20px;
     color: #3a2d27;
@@ -37,7 +37,7 @@ export const LogInContainer = styled.form`
     background-color: #f1ece6;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   }
-  & > input:focus {
+  & > div > input:focus {
     outline: none;
   }
 `;
@@ -81,4 +81,18 @@ export const SignUpBtn = styled.button`
   margin-top: 60px;
   font-size: 25px;
   font-weight: 700;
+`;
+
+export const Label = styled.label`
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: -25px;
+  margin-left: 10px;
+  z-index: 10;
+`;
+
+export const FlexDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 `;

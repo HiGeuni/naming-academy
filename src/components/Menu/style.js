@@ -31,7 +31,7 @@ export const MenuItem = styled.button`
 export const NewFeedBtn = styled.button`
   position: relative;
   margin-top: -40px;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   float: right;
   background: none;

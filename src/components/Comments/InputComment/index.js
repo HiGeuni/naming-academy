@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { AnonumousWrapper, InputArea, CustomChkBox } from "./style";
 import { addComment } from "hooks/Comment";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "hooks/useAuth";
 
 const InputComment = () => {
+  const { user, isLoggedIn } = useAuth();
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
@@ -24,6 +26,7 @@ const InputComment = () => {
       })
       .catch((e) => console.error(e));
   };
+
   return (
     <>
       <AnonumousWrapper>
@@ -38,8 +41,13 @@ const InputComment = () => {
           onChange={(e) => onChangeInput(e)}
           placeholder="Leave a Comment!"
           style={{ resize: "none" }}
+          disabled={isLoggedIn}
         />
-        <button style={{ cursor: "pointer" }} type="submit">
+        <button
+          style={{ cursor: "pointer" }}
+          type="submit"
+          disabled={isLoggedIn}
+        >
           게시
         </button>
       </InputArea>

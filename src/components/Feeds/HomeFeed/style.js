@@ -34,15 +34,16 @@ export const FeedContainer = styled.div`
   height: 600px;
   border-radius: 20px;
   background-color: #d9d9d9;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 0px 1px rgba(0, 0, 0, 0.1);
 `;
 
 export const Image = styled.img`
   width: 100%;
   height: 500px;
+  object-fit: contain;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  margin-bottom: -10px;
+  margin-bottom: -8px;
 `;
 
 export const BestComment = styled.div`
