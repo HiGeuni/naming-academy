@@ -9,15 +9,15 @@ function Home() {
   const [feedData, setFeedData] = useState(null);
 
   useEffect(() => {
-    fetchFeeds()
-      .then((d) => setFeedData(d.data))
-      .catch((e) => console.error(e));
+    // fetchFeeds()
+    //   .then((d) => setFeedData(d.data))
+    //   .catch((e) => console.error(e));
   }, []);
 
   return (
     <Layout>
       <Menu isBest={isBest} setIsBest={setIsBest} />
-      <Feeds data={feedData} />
+      {/* <Feeds data={feedData} /> */}
     </Layout>
   );
 }
