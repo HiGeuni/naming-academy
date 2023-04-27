@@ -7,7 +7,7 @@ import {
 } from "./style";
 import { useNavigate } from "react-router-dom";
 import { useInput } from "hooks/useInput";
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
 const SignUpForm = () => {
   const navigate = useNavigate();
   const id = useInput("");
@@ -26,8 +26,13 @@ const SignUpForm = () => {
       nickName: nickname.value,
       password: password1.value,
     };
-    const res = await axios.post("/members/signUp", postData);
-    console.log(res);
+    axios
+      .post("/users/signup", postData)
+      .then((res) => {
+        console.log(res);
+        navigate("/login");
+      })
+      .catch((e) => console.error(e));
   };
   return (
     <Container>

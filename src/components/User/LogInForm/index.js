@@ -9,6 +9,8 @@ import {
 } from "./style";
 import { useNavigate } from "react-router-dom";
 import { useInput } from "hooks/useInput";
+import axios from "axios";
+
 const LogInForm = () => {
   const id = useInput("");
   const password = useInput("");
@@ -19,14 +21,26 @@ const LogInForm = () => {
   const onClickBtn = () => {
     navigate("/signup");
   };
-  const onHandleSubmit = (e) => {
+
+  const onHandleSubmit = async (e) => {
     e.preventDefault();
-    setIsError(!isError);
-    console.log(id.value, password.value);
+    const postData = {
+      loginId: id.value,
+      password: password.value,
+    };
+    const formData = new FormData();
+    formData.append("loginId", id.value);
+    formData.append("password", password.value);
+
+    axios
+      .post("/users/login", postData)
+      .then((res) => console.log(res))
+      .catch((e) => console.error(e));
   };
+
   return (
     <Container>
-      <LogInContainer onSubmit={(e) => onHandleSubmit(e)}>
+      <LogInContainer onSubmit={onHandleSubmit}>
         <div> Sign In </div>
         <div style={{ width: "66%", marginTop: "24px" }}>
           {isError && <Error>Invalid Id or Password</Error>}
@@ -45,7 +59,7 @@ const LogInForm = () => {
           value={password.value}
           onChange={(e) => password.onChangeValue(e)}
         />
-        <SubmitBtn>LogIn!</SubmitBtn>
+        <SubmitBtn type="submit">LogIn!</SubmitBtn>
       </LogInContainer>
       <WelcomeContainer>
         <div> 제목 학원에 오신 걸 환영합니다! </div> <br />
