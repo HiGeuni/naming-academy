@@ -42,8 +42,12 @@ const SignUpForm = () => {
       nickName: nickname.value,
       password: password1.value,
     };
-    const { data } = Signup({ body: postData });
-    console.log(data);
+    if (!isError) {
+      await Signup({ body: postData }).then((res) => {
+        alert("Sign up successfully!");
+        navigate("/login");
+      });
+    }
   };
   return (
     <Container>

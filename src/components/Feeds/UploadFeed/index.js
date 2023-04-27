@@ -3,6 +3,7 @@ import { FileUpload, SubmitBtn, UploadContainer, Input, Label } from "./style";
 import { MdCloudUpload } from "react-icons/md";
 import { addFeed } from "hooks/Feed";
 import { useNavigate } from "react-router-dom";
+import { PostFeed } from "api/feed";
 
 const UploadFeed = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -50,13 +51,10 @@ const UploadFeed = () => {
       alert("이미지를 입력하세요!");
       return;
     }
-    formData.append("image", selectedImage);
-    addFeed({ data: formData })
-      .then((res) => {
-        console.log(res.data);
-        navigate("/");
-      })
-      .catch((e) => console.error(e));
+    formData.append("file", selectedImage);
+    PostFeed({ body: formData })
+      .then((res) => {})
+      .catch((e) => {});
   };
 
   return (

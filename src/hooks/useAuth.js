@@ -1,3 +1,4 @@
+import { axiosInstance } from "api";
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
@@ -8,20 +9,11 @@ function AuthProvider({ children }) {
 
   useEffect(() => {
     // 로그인한 사용자 정보를 가져오는 비동기 함수
-    async function fetchUser() {
-      try {
-        const response = await fetch("/api/user");
-        const data = await response.json();
-        if (data.response === 200) {
-          setUser(data);
-          isLoggedIn(true);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    fetchUser();
+    const { data } = axiosInstance.request({
+      method: "GET",
+      url: "/users/mypage",
+    });
+    console.log(data);
   }, []);
 
   const value = {

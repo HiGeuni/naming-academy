@@ -4,7 +4,7 @@ export const PostFeed = async ({ body }) => {
   const { data } = await axiosInstance.request({
     method: "POST",
     url: "/posts",
-    body: body,
+    data: body,
   });
   return data;
 };

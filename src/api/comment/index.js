@@ -4,7 +4,7 @@ export const AddComment = async ({ postId, body }) => {
   const { data } = axiosInstance.request({
     method: "POST",
     url: `/posts/${postId}/comments`,
-    body: body,
+    data: body,
   });
   return data;
 };

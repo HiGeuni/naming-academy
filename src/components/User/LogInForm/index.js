@@ -12,6 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useInput } from "hooks/useInput";
 import axios from "axios";
+import { Login } from "api/auth";
 
 const LogInForm = () => {
   const id = useInput("");
@@ -26,19 +27,22 @@ const LogInForm = () => {
 
   const onHandleSubmit = async (e) => {
     e.preventDefault();
-    setIsError(!isError);
-    // const postData = {
-    //   loginId: id.value,
-    //   password: password.value,
-    // };
+    const postData = {
+      loginId: id.value,
+      password: password.value,
+    };
+
     // const formData = new FormData();
     // formData.append("loginId", id.value);
     // formData.append("password", password.value);
 
-    // axios
-    //   .post("/users/login", postData)
-    //   .then((res) => console.log(res))
-    //   .catch((e) => console.error(e));
+    await Login({ body: postData })
+      .then((res) => {
+        navigate("/");
+      })
+      .catch((e) => {
+        setIsError(true);
+      });
   };
 
   return (
